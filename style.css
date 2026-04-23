@@ -1,6 +1,6 @@
 :root {
-    --primary: #5c62ec;
-    --primary-glow: rgba(92, 98, 236, 0.4);
+    --primary: #00e676;
+    --primary-glow: rgba(0, 230, 118, 0.4);
     --secondary: #00f2fe;
     --bg-dark: #0f0f12;
     --bg-darker: #08080a;
@@ -80,6 +80,20 @@ h2 {
     max-width: 600px;
 }
 
+.hero-rocket {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    color: var(--primary);
+    filter: drop-shadow(0 0 10px var(--primary-glow));
+}
+
+.hero-rocket svg {
+    width: 48px;
+    height: 48px;
+}
+
 /* Navbar */
 .navbar {
     position: fixed;
@@ -106,7 +120,16 @@ h2 {
     text-decoration: none;
     color: #fff;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+}
+.logo-comp {
+    color: var(--primary);
+    text-shadow: 0 0 20px var(--primary-glow);
+}
+.logo-x {
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 .logo img {
@@ -151,7 +174,7 @@ h2 {
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 30px var(--primary-glow);
-    background: #6e74ff;
+    background: #00c853;
 }
 
 .btn-secondary {
