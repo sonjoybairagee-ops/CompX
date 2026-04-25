@@ -1,0 +1,9 @@
+{
+  "price": 600,
+  "currency": "৳",
+  "period": "one-time",
+  "discounts": [
+    { "code": "SB80", "description": "80% Off — First 20 users" },
+    { "code": "SB60", "description": "60% Off — Next 100 users" }
+  ]
+}
