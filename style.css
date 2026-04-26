@@ -1,7 +1,7 @@
 :root {
-    --primary: #33b5ff;
-    --primary-glow: rgba(51, 181, 255, 0.4);
-    --secondary: #00f2fe;
+    --primary: #ccff00;
+    --primary-glow: rgba(204, 255, 0, 0.4);
+    --secondary: #bfff00;
     --bg-dark: #0f0f12;
     --bg-darker: #08080a;
     --text-white: #ffffff;
@@ -9,7 +9,8 @@
     --glass: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
     --glass-hover: rgba(255, 255, 255, 0.06);
-    --accent-blue: #33b5ff;
+    --accent-blue: #00e5ff;
+    --accent-green: #ccff00;
     --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
@@ -125,11 +126,13 @@ h2 {
 }
 .logo-comp {
     color: var(--primary);
-    text-shadow: 0 0 20px var(--primary-glow);
+    text-shadow: 0 0 30px var(--primary-glow);
+    text-transform: uppercase;
 }
 .logo-x {
     color: #fff;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
 }
 
 .logo img {
@@ -167,14 +170,15 @@ h2 {
 
 .btn-primary {
     background: var(--primary);
-    color: #fff;
+    color: #0a0a0a;
     box-shadow: 0 0 20px var(--primary-glow);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 30px var(--primary-glow);
-    background: #0099ff;
+    background: #bfff00;
+    color: #0a0a0a;
 }
 
 .btn-secondary {
@@ -190,14 +194,14 @@ h2 {
 
 /* Download Button — 3D Press */
 .btn-download {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    color: #fff;
+    background: linear-gradient(135deg, #ccff00, #bfff00);
+    color: #000;
     border: none;
     font-weight: 700;
     letter-spacing: 0.5px;
     box-shadow:
-        0 6px 0 #004aaa,
-        0 8px 16px rgba(0, 114, 255, 0.4);
+        0 6px 0 #99bf00,
+        0 8px 16px rgba(204, 255, 0, 0.4);
     transform: translateY(0px);
     transition: all 0.12s ease;
     position: relative;
@@ -434,24 +438,24 @@ h2 {
     border-radius: 28px;
     overflow: hidden;
     position: relative;
-    border: 1px solid rgba(51, 181, 255, 0.3);
+    border: 1px solid rgba(204, 255, 0, 0.3);
     box-shadow:
-        0 0 0 1px rgba(51, 181, 255, 0.1),
-        0 0 60px rgba(51, 181, 255, 0.08),
+        0 0 0 1px rgba(204, 255, 0, 0.1),
+        0 0 60px rgba(204, 255, 0, 0.08),
         0 32px 64px rgba(0, 0, 0, 0.5);
     animation: borderGlow 4s ease-in-out infinite;
 }
 
 @keyframes borderGlow {
-    0%, 100% { box-shadow: 0 0 0 1px rgba(51,181,255,0.1), 0 0 60px rgba(51,181,255,0.08), 0 32px 64px rgba(0,0,0,0.5); }
-    50%       { box-shadow: 0 0 0 1px rgba(51,181,255,0.4), 0 0 80px rgba(51,181,255,0.18), 0 32px 64px rgba(0,0,0,0.5); }
+    0%, 100% { box-shadow: 0 0 0 1px rgba(204,255,0,0.1), 0 0 60px rgba(204,255,0,0.08), 0 32px 64px rgba(0,0,0,0.5); }
+    50%       { box-shadow: 0 0 0 1px rgba(204,255,0,0.4), 0 0 80px rgba(204,255,0,0.18), 0 32px 64px rgba(0,0,0,0.5); }
 }
 
 /* Left Panel */
 .pricing-left {
-    background: linear-gradient(145deg, #0d1b2e, #0a1220);
+    background: linear-gradient(145deg, #101512, #080a09);
     padding: 3.5rem 2.5rem;
-    border-right: 1px solid rgba(51, 181, 255, 0.15);
+    border-right: 1px solid rgba(204, 255, 0, 0.15);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -532,8 +536,8 @@ h2 {
 }
 
 .discount-badge {
-    background: linear-gradient(135deg, #33b5ff, #0072ff);
-    color: #fff;
+    background: linear-gradient(135deg, #ccff00, #99bf00);
+    color: #000;
     padding: 0.25rem 0.8rem;
     border-radius: 6px;
     font-weight: 800;
@@ -543,7 +547,7 @@ h2 {
 }
 
 .discount-badge.secondary {
-    background: linear-gradient(135deg, #a78bfa, #7c3aed);
+    background: linear-gradient(135deg, #bfff00, #8ab200);
 }
 
 .discount-text {
@@ -599,7 +603,7 @@ h2 {
 
 /* Right Panel */
 .pricing-right {
-    background: linear-gradient(145deg, #08111d, #060d18);
+    background: linear-gradient(145deg, #0a0e0a, #050705);
     padding: 3.5rem 2.5rem;
     display: flex;
     flex-direction: column;
