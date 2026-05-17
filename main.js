@@ -49,4 +49,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     revealElements.forEach(el => observer.observe(el));
+
+    // Floating Support Widget Toggle
+    const supportTrigger = document.getElementById('supportTrigger');
+    const supportMenu = document.getElementById('supportMenu');
+    
+    if (supportTrigger && supportMenu) {
+        supportTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            supportMenu.classList.toggle('active');
+            supportTrigger.classList.toggle('active');
+        });
+        
+        document.addEventListener('click', () => {
+            supportMenu.classList.remove('active');
+            supportTrigger.classList.remove('active');
+        });
+        
+        supportMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
 });

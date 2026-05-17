@@ -159,7 +159,10 @@ h2 {
 
 /* Buttons */
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
     padding: 1rem 2.5rem;
     border-radius: 50px;
     font-weight: 600;
@@ -260,6 +263,12 @@ h2 {
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
+}
+
+.hero-btns .btn {
+    width: 320px;
+    max-width: 100%;
+    justify-content: center;
 }
 
 .mockup-wrapper {
@@ -430,10 +439,7 @@ h2 {
 }
 
 .pricing-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    max-width: 900px;
+    max-width: 550px;
     margin: 0 auto;
     border-radius: 28px;
     overflow: hidden;
@@ -451,14 +457,14 @@ h2 {
     50%       { box-shadow: 0 0 0 1px rgba(204,255,0,0.4), 0 0 80px rgba(204,255,0,0.18), 0 32px 64px rgba(0,0,0,0.5); }
 }
 
-/* Left Panel */
+/* Main Pricing Card */
 .pricing-left {
     background: linear-gradient(145deg, #101512, #080a09);
     padding: 3.5rem 2.5rem;
-    border-right: 1px solid rgba(204, 255, 0, 0.15);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    width: 100%;
 }
 
 .pricing-badge {
@@ -1000,6 +1006,7 @@ h2 {
     .feature-category-header h3 { font-size: 1.5rem; }
     .pricing-wrapper { grid-template-columns: 1fr; }
     .pricing-left { border-right: none; border-bottom: 1px solid rgba(51,181,255,0.15); }
+    .support-cards { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -1031,3 +1038,335 @@ h2 {
     .pricing-left, .pricing-right { padding: 2rem 1.5rem; }
     .price-number { font-size: 4rem; }
 }
+
+/* Buy Globally Button - Premium Purple Gradient */
+.btn-lemon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: linear-gradient(135deg, #7047eb, #8b5cf6);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 0 20px rgba(112, 71, 235, 0.4);
+    border-radius: 50px;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.btn-lemon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(112, 71, 235, 0.6);
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+    color: #fff;
+}
+
+.pricing-cta .btn-lemon {
+    width: 100%;
+}
+
+/* Pulse Animation for BDT Button */
+@keyframes pulse-primary {
+    0%, 100% { box-shadow: 0 0 20px var(--primary-glow); }
+    50%       { box-shadow: 0 0 35px rgba(204, 255, 0, 0.75); }
+}
+
+.pulse-primary-btn {
+    animation: pulse-primary 2.5s ease-in-out infinite;
+}
+
+/* Floating Support Widget */
+.support-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 2000;
+    font-family: 'Outfit', sans-serif;
+}
+
+.support-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--primary);
+    color: #0a0a0a;
+    border: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 8px 24px var(--primary-glow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.support-trigger:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 30px var(--primary-glow);
+    background: #bfff00;
+}
+
+.support-trigger.active {
+    background: var(--bg-darker);
+    color: #fff;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--card-shadow);
+}
+
+.support-menu {
+    position: absolute;
+    bottom: 65px;
+    right: 0;
+    width: 320px;
+    background: rgba(15, 15, 18, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.support-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.support-menu-header {
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.8rem;
+}
+
+.support-menu-header h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.2rem;
+}
+
+.support-menu-header p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.support-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.support-opt-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.support-opt-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(3px);
+}
+
+.support-opt-item .opt-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.support-opt-item.whatsapp .opt-icon {
+    background: rgba(37, 211, 102, 0.1);
+    color: #25d366;
+}
+
+.support-opt-item.email .opt-icon {
+    background: rgba(14, 165, 233, 0.1);
+    color: #0ea5e9;
+}
+
+.support-opt-item .opt-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.support-opt-item .opt-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.support-opt-item .opt-desc {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Dedicated Support Cards Section */
+.support-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.support-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.support-card:hover {
+    transform: translateY(-8px);
+}
+
+.support-card.glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.support-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
+
+.support-icon-wrapper.wa {
+    background: rgba(37, 211, 102, 0.1);
+    color: #25d366;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.15);
+}
+
+.support-icon-wrapper.email {
+    background: rgba(14, 165, 233, 0.1);
+    color: #0ea5e9;
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.15);
+}
+
+.support-card h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.support-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex: 1;
+}
+
+.support-card .btn {
+    width: 100%;
+}
+
+/* Pricing Switch Selector */
+.pricing-selector-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.pricing-selector {
+    position: relative;
+    display: flex;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 4px;
+    border-radius: 30px;
+    width: 100%;
+}
+
+.selector-bg {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    width: calc(50% - 4px);
+    background: var(--primary);
+    border-radius: 26px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px var(--primary-glow);
+    z-index: 1;
+}
+
+.selector-btn {
+    flex: 1;
+    position: relative;
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 0.8rem 0;
+    font-weight: 700;
+    font-size: 0.9rem;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.3s;
+}
+
+.selector-btn.active {
+    color: #0a0a0a;
+}
+
+/* Pricing Card States */
+.pricing-left.is-global .selector-bg {
+    transform: translateX(100%);
+}
+
+/* Toggle CTA Button Visibility with Smooth Transitions */
+.pricing-left .btn-primary,
+.pricing-left .btn-lemon {
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Local Mode active states */
+.pricing-left:not(.is-global) .btn-lemon {
+    display: none !important;
+}
+
+/* Global Mode active states */
+.pricing-left.is-global .btn-primary {
+    display: none !important;
+}
+
+.pricing-left.is-global .discount-codes {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Transition for price updates */
+#price-number, .pricing-sub {
+    transition: opacity 0.2s ease;
+}
+
