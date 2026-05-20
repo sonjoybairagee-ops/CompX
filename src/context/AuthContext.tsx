@@ -21,7 +21,7 @@ export interface AuthUser {
   leadLimit: number;
   getIdToken?: (forceRefresh?: boolean) => Promise<string>;
 }
-}
+
 
 interface AuthContextType {
   user: AuthUser | null;
