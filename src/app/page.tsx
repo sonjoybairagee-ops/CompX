@@ -14,6 +14,7 @@ import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import BuyModal from "@/components/BuyModal";
 import SupportWidget from "@/components/SupportWidget";
+import Pricing from "@/components/Pricing";
 
 export default function Home() {
   const router = useRouter();
@@ -135,4 +136,4 @@ export default function Home() {
 }
 
 // Temporary inline import redirection to prevent circular or build reference issues
-import Pricing from "@/components/Pricing";
+
