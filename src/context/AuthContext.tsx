@@ -19,6 +19,8 @@ export interface AuthUser {
   plan: string;
   leadsUsed: number;
   leadLimit: number;
+  getIdToken?: (forceRefresh?: boolean) => Promise<string>;
+}
 }
 
 interface AuthContextType {
