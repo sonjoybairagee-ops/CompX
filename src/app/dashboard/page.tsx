@@ -139,7 +139,7 @@ export default function DashboardPage() {
   // Broadcast Firebase Auth Token to the Extension via postMessage
   useEffect(() => {
     if (user && typeof window !== "undefined") {
-      user.getIdToken(true).then((token: string) => {
+      user.getIdToken?.(true).then((token: string)=> {
         window.postMessage({ type: "COMPX_AUTH_TOKEN", token }, "*");
         console.log("[SaaS Dashboard] Broadcasted Auth Token to Extension");
       }).catch((err: any) => console.error("Failed to get ID Token:", err));
