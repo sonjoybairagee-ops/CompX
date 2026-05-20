@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compx Leads Pro</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="glow1"></div>
+  <div class="glow2"></div>
+
+  <div class="container">
+
+    <!-- ==================== SCREEN 1: LOGIN / LICENSE VALIDATION ==================== -->
+    <div id="authScreen" class="screen">
+      <div class="auth-wrapper">
+        <div class="auth-card">
+          
+          <!-- LOGO -->
+          <div class="auth-logo">
+            <img src="icon.png" alt="Compx Leads Pro" style="width: 48px; height: 48px; border-radius: 12px; box-shadow: 0 0 15px rgba(99, 102, 241, 0.4); object-fit: cover;" />
+            <div>
+              <h1 style="font-size: 15px; margin: 0; font-weight: 800; color: white; text-align: left; line-height: 1.25; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial;">Welcome to <span class="logo-accent" style="display: block; font-size: 19px; background: linear-gradient(90deg, #A78BFA, #F472B6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 12px rgba(244, 114, 182, 0.35);">CompX Leads Pro</span></h1>
+            </div>
+          </div>
+
+          <!-- TITLE -->
+          <div class="auth-title" style="margin-top: 10px; margin-bottom: 18px; text-align: left;">
+            <p style="font-size: 9.5px; font-weight: 800; color: #A78BFA; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; margin-top: 0;">AI Lead Intelligence System</p>
+            <p style="font-size: 11.5px; color: #94A3B8; line-height: 1.45; margin: 0; font-weight: 500;">For high-quality lead generation, business intelligence scans, and offline scraping campaigns.</p>
+          </div>
+
+          <!-- FIREBASE AUTH CONNECT UI -->
+          <div style="text-align: center; padding: 10px 0 16px;">
+            <div style="width: 64px; height: 64px; border-radius: 20px; background: linear-gradient(135deg, #6366F1, #8B5CF6); display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 16px; box-shadow: 0 0 20px rgba(99,102,241,0.4);">🔐</div>
+            <h3 style="font-size: 15px; font-weight: 800; color: white; margin-bottom: 8px;">Auto-Connect with Dashboard</h3>
+            <p style="font-size: 11px; color: #94A3B8; line-height: 1.55; margin-bottom: 20px;">Login to your <strong style="color: #A78BFA;">CompX SaaS Dashboard</strong> and your extension will sync automatically — no token needed.</p>
+          </div>
+
+          <!-- OPEN DASHBOARD BUTTON -->
+          <button id="activateBtn" class="login-btn" style="margin-bottom: 12px;">
+            <span>🌐 Open Dashboard to Connect</span>
+          </button>
+
+          <!-- STATUS AREA -->
+          <div id="authStatus" style="margin-top: 8px; text-align: center; font-size: 11px; color: #64748B;">
+            Waiting for dashboard login...
+          </div>
+
+          <!-- DIVIDER -->
+          <div class="divider" style="margin: 16px 0 12px;">
+            <div class="divider-line"></div>
+            <span>OR MANUALLY</span>
+            <div class="divider-line"></div>
+          </div>
+
+          <!-- MANUAL TOKEN FALLBACK -->
+          <div class="form-group" style="margin-bottom: 10px;">
+            <label class="label">Paste Token Manually (Fallback)</label>
+            <input type="text" id="licenseKey" class="input" placeholder="compx_live_sk_..." style="font-family: monospace; font-size: 11px;" />
+          </div>
+          <button id="manualTokenBtn" class="social-btn" style="width: 100%; justify-content: center; font-size: 12px;">
+            🔑 Activate with Token
+          </button>
+
+          <!-- SOCIALS -->
+          <div class="socials" style="margin-top: 16px;">
+            <button id="buyBtn" class="social-btn">
+              🧩 Extension Hub
+            </button>
+            <button id="supportBtn" class="social-btn">
+              📊 Open SaaS
+            </button>
+          </div>
+
+          <!-- BADGE -->
+          <div class="auth-badge">
+            ⚡ AI Powered Lead Intelligence
+          </div>
+
+          <!-- FOOTER -->
+          <div class="auth-footer">
+            CompX Leads Pro © 2026<br>
+            Built for agencies, marketers &amp; freelancers
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== SCREEN 2: MAIN DASHBOARD ==================== -->
+    <div id="mainScreen" class="screen hidden">
+      
+      <!-- Topbar Header -->
+      <div class="topbar">
+        <div class="logo">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="icon.png" alt="Compx Leads Pro" style="width: 32px; height: 32px; border-radius: 8px; box-shadow: 0 0 10px rgba(99, 102, 241, 0.35); object-fit: cover;" />
+            <h1 style="font-size: 18px; font-weight: 800; display: flex; flex-direction: column; text-align: left; gap: 2px; background: none; -webkit-text-fill-color: initial; -webkit-background-clip: initial;">
+              <span class="logo-accent" style="font-size: 19px; background: linear-gradient(90deg, #A78BFA, #F472B6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 12px rgba(244, 114, 182, 0.35);">CompX Leads Pro</span>
+              <span style="font-size: 9px; font-weight: 800; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.8px; margin-top: 1px;">AI Lead Intelligence Dashboard</span>
+            </h1>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="plan" id="userPlanBadge">PRO</div>
+            <button id="logoutBtn" class="icon-btn" title="Logout / Lock License">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 14px; height: 14px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div style="margin-top: 10px; display: flex; justify-content: space-between; align-items: center;">
+          <p id="userGreeting" style="font-size: 11px; color: #94A3B8; font-weight: 500;">Hello Operator, ready to hunt?</p>
+          <span class="badge premium-badge" style="letter-spacing: 0.5px;">👑 COMPX ENGINE ACTIVE</span>
+        </div>
+        <!-- Dynamic Quota Progress Bar -->
+        <div id="quotaContainer" style="margin-top: 12px; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.04); padding: 8px 12px; border-radius: 12px; display: flex; flex-direction: column; gap: 6px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
+            <span style="color: #A78BFA;">SaaS Sync Limit</span>
+            <span id="quotaText" style="color: #F472B6; font-family: monospace;">0 / 0 Leads</span>
+          </div>
+          <div style="width: 100%; height: 5px; background: rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; position: relative;">
+            <div id="quotaBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #8B5CF6, #EC4899); border-radius: 10px; transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 0 8px rgba(236, 72, 153, 0.55);"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Counters Grid -->
+      <div class="stats" style="padding: 18px 20px 10px;">
+        <div class="card">
+          <p>Total Leads</p>
+          <h2 id="leadCount">0</h2>
+        </div>
+        <div class="card">
+          <p>Emails Found</p>
+          <h3 id="emailCount">0</h3>
+        </div>
+        <div class="card" style="padding: 12px 14px;">
+          <p>Social Links</p>
+          <h3 id="socialCount" style="font-size: 20px; margin-top: 4px; color: #8B5CF6;">0</h3>
+        </div>
+        <div class="card" style="padding: 12px 14px;">
+          <p>AI Lead Score</p>
+          <h3 id="leadScore" style="font-size: 20px; margin-top: 4px; color: #10B981;">0</h3>
+        </div>
+      </div>
+
+      <!-- ==================== COMPX AI LEADS WIDGET (Phase 4) ==================== -->
+      <div class="scraper-box" style="padding-top: 0; padding-bottom: 8px;">
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); padding: 12px 16px; border-radius: 16px; display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="font-size: 11.5px; font-weight: 800; color: #E2E8F0; text-transform: uppercase; letter-spacing: 0.5px; margin: 0; background: linear-gradient(90deg, #A78BFA, #F472B6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">CompX AI Leads</h2>
+            <span id="aiCategoryBadge" class="badge" style="background: rgba(139, 92, 246, 0.15); color: #C4B5FD; border: 1px solid rgba(139, 92, 246, 0.2); font-size: 8.5px; padding: 2px 6px; border-radius: 4px; text-transform: uppercase;">UNKNOWN</span>
+          </div>
+          
+          <div style="display: flex; gap: 12px; margin-top: 2px;">
+            <div style="flex: 1; background: rgba(0, 0, 0, 0.2); padding: 8px 10px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.03); text-align: center;">
+              <span style="font-size: 8px; color: #94A3B8; display: block; text-transform: uppercase; font-weight: 700; letter-spacing: 0.2px;">AI Lead Score</span>
+              <div id="score" style="font-size: 13px; font-weight: 800; color: #10B981; margin-top: 2px;">Lead Score: 0</div>
+            </div>
+            
+            <div style="flex: 1; background: rgba(0, 0, 0, 0.2); padding: 8px 10px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.03); text-align: center;">
+              <span style="font-size: 8px; color: #94A3B8; display: block; text-transform: uppercase; font-weight: 700; letter-spacing: 0.2px;">Lead Intent</span>
+              <div id="intent" style="font-size: 13px; font-weight: 800; color: #60A5FA; margin-top: 2px; text-transform: uppercase;">Intent: COLD</div>
+            </div>
+          </div>
+          
+          <div id="aiSignalsList" style="display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px;">
+            <!-- Dynamic signals will render here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Dropdown Scraper Box selection -->
+      <div class="scraper-box">
+        
+        <select id="scraperSelect" class="select-box">
+          <option value="website" selected>🌐 Website Enrichment</option>
+          <option value="linkedin">💼 LinkedIn Scraper</option>
+          <option value="maps">📍 Google Maps Scraper</option>
+          <option value="instagram">📸 Instagram Scraper</option>
+        </select>
+
+        <!-- ── WEBSITE ENRICHMENT PANEL ── -->
+        <div id="websitePanel" class="panel active">
+          <h3>🌐 Website Discovery & Enrichment</h3>
+          
+          <textarea id="bulkInput" placeholder="Enter target websites (one per line)..." style="width: 100%; height: 58px; background: #111827; border: 1px solid rgba(255,255,255,.08); border-radius: 12px; color: white; padding: 10px; font-size: 12px; font-family: inherit; resize: none; box-sizing: border-box; margin-bottom: 12px; outline: none; transition: border-color 0.2s;"></textarea>
+          
+          <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+            <button id="scanBtn" class="btn" style="flex: 1; padding: 11px; font-size: 13px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 14px; height: 14px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.637 10.637z" />
+              </svg>
+              <span>Scan Active</span>
+            </button>
+            
+            <button id="enrichBtn" class="btn" style="flex: 1.2; background: #8B5CF6; padding: 11px; font-size: 13px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 14px; height: 14px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+              </svg>
+              <span>Enrich Deep</span>
+            </button>
+          </div>
+
+          <!-- Live Scanned Items Lists -->
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 9px; color: #94A3B8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">Scanned Emails</span>
+            <div id="emails" class="list">
+              <div style="font-size:10px; color:#64748B; text-align:center; padding:10px;">Scanned emails will render here</div>
+            </div>
+
+            <span style="font-size: 9px; color: #94A3B8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">Scanned Socials</span>
+            <div id="socials" class="list">
+              <div style="font-size:10px; color:#64748B; text-align:center; padding:10px;">Scanned socials will render here</div>
+            </div>
+
+            <span style="font-size: 9px; color: #94A3B8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; margin-bottom: 2px;">Scanned Phones</span>
+            <div id="phones" class="list">
+              <div style="font-size:10px; color:#64748B; text-align:center; padding:10px;">Scanned phones will render here</div>
+            </div>
+          </div>
+
+            <div style="display: flex; gap: 8px;">
+              <button id="downloadBtn" class="btn" style="background: #10B981; font-size: 11.5px; padding: 8px; border-radius: 10px; flex: 1;" disabled>Export CSV</button>
+              <button id="googleSheetsBtn" class="btn" style="background: #0F9D58; font-size: 11.5px; padding: 8px; border-radius: 10px; flex: 1.2;" disabled>Export to Sheets</button>
+            </div>
+          </div>
+
+          <!-- Session Controls -->
+          <div style="background: #111827; padding: 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 8.5px; color: #94A3B8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Active session controls</span>
+            <div style="display: flex; gap: 6px;">
+              <button id="sessionExportBtn" class="btn" style="background: #0F172A; border: 1px solid rgba(255,255,255,0.1); font-size: 9px; padding: 6px; border-radius: 8px; flex: 1;" title="Export session leads before clear">Export</button>
+              <button id="sessionArchiveBtn" class="btn" style="background: #8b5cf6; font-size: 9px; padding: 6px; border-radius: 8px; flex: 1;" title="Move active leads to history database">Archive</button>
+              <button id="sessionNewBtn" class="btn" style="background: #EF4444; font-size: 9px; padding: 6px; border-radius: 8px; flex: 1;" title="Start fresh session">New</button>
+            </div>
+          </div>
+
+          <div class="result" id="websiteResult" style="display: none;">No enrichment yet</div>
+        </div>
+
+        <!-- ── LINKEDIN SCRAPER PANEL ── -->
+        <div id="linkedinPanel" class="panel">
+          <h3>💼 LinkedIn Company Scraper</h3>
+          <button class="btn" id="linkedinBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 14px; height: 14px;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.109A11.386 11.386 0 0110.089 20c-2.202 0-4.21-.622-5.908-1.7a4.122 4.122 0 000-7.79A11.378 11.378 0 0112 9c1.08 0 2.122.15 3.109.43m0 9.698v-3.07m0 3.07a9.337 9.337 0 01-4.121-.952M12 9.006c-.198 0-.395-.004-.59-.01M12 9.006V6c0-1.657-1.343-3-3-3s-3 1.343-3 3v3.01m6-.004c.983-.005 1.942-.143 2.85-.4M12 9.006c-1.113 0-2.16-.285-3.07-.786" />
+            </svg>
+            <span>Scrape LinkedIn Page</span>
+          </button>
+          
+          <div style="margin-top: 14px; display: flex; justify-content: space-between; align-items: center;">
+            <h4 id="resultTitle" style="font-size: 10px; color: #94A3B8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">LinkedIn Result</h4>
+            <button id="saveBtn" class="action-btn" title="Save Leads List" style="border-radius: 6px; display: flex; align-items: center; justify-content: center; height: 26px; padding: 0 8px; font-size: 10px;" disabled>
+              Save Lead
+            </button>
+          </div>
+          
+          <pre class="result" id="linkedinResult">No LinkedIn data yet</pre>
+        </div>
+
+        <!-- ── GOOGLE MAPS PANEL ── -->
+        <div id="mapsPanel" class="panel">
+          <h3>📍 Google Maps Scraper</h3>
+          
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <input type="text" class="input" placeholder="e.g. dentist near london" id="mapsKeyword" style="margin-bottom: 0;" />
+            
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+              <span style="font-size: 10px; color: #94A3B8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Limit:</span>
+              <input type="number" id="gmapsLimitInput" value="100" min="1" style="width: 70px; background: #111827; border: 1px solid rgba(255,255,255,.08); border-radius: 8px; color: white; padding: 6px 10px; font-size: 12px; font-family: inherit; outline: none; text-align: center; height: 32px;" />
+              <span style="font-size: 9px; color: #64748B;">results</span>
+            </div>
+          </div>
+
+          <button class="btn" id="gmapsBtn" style="background: #EA4335;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 14px; height: 14px;">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+               <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>Start Maps Scraping</span>
+          </button>
+          
+          <div class="result" id="mapsResult" style="margin-top: 14px;">No Maps leads yet</div>
+        </div>
+
+        <!-- ── INSTAGRAM PANEL ── -->
+        <div id="instagramPanel" class="panel">
+          <h3>📸 Instagram Scraper</h3>
+          
+          <button class="btn" id="instagramBtn" style="background: linear-gradient(45deg, #F09433 0%, #E6683C 25%, #DC2743 50%, #CC2366 75%, #BC1888 100%);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 14px; height: 14px;">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+            <span>Scrape Instagram Profile</span>
+          </button>
+          
+          <div style="margin-top: 14px; display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="font-size: 10px; color: #94A3B8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Instagram Result</h4>
+          </div>
+          
+          <pre class="result" id="instagramResult">No Instagram data yet</pre>
+        </div>
+
+      </div>
+
+      <!-- Sync to SaaS Button -->
+      <div class="scraper-box" style="padding-top: 10px;">
+        <button id="syncSaaSBtn" class="btn" style="background: linear-gradient(90deg, #8B5CF6, #EC4899); font-size: 12px; padding: 10px; border-radius: 12px; font-weight: 800; box-shadow: 0 0 10px rgba(236, 72, 153, 0.25); width: 100%;" disabled>
+          ⚡ Sync All Data to SaaS Dashboard
+        </button>
+      </div>
+
+      <!-- Bottom Tab Bar -->
+      <div class="scraper-box" style="padding-top: 0;">
+        <div class="toolbar">
+          <button id="goHistoryBtn" class="toolbar-link" style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 12px; height: 12px;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+            </svg>
+            <span>Saved Lists</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="footer">
+        Powered by CompX Engine ⚡
+      </div>
+    </div>
+
+
+    <!-- ==================== SCREEN 3: SAVED LEADS HISTORY ==================== -->
+    <div id="historyScreen" class="screen hidden">
+      <div class="topbar">
+        <h1 style="font-size: 22px;">Compx <span class="logo-accent">Database</span></h1>
+        <p style="font-size: 11px; color: #94A3B8;">Full chronological record of scraped lead registries</p>
+      </div>
+
+      <div class="panel active" style="margin: 20px;">
+        <!-- Control buttons -->
+        <div style="display: flex; gap: 8px; margin-bottom: 14px;">
+          <button id="clearHistoryBtn" class="btn" style="background: #EF4444; padding: 10px; font-size: 12px; flex: 1;">
+            <span>Clear Database</span>
+          </button>
+          <button id="exportHistoryBtn" class="btn" style="background: #10B981; padding: 10px; font-size: 12px; flex: 1;">
+            <span>Export All CSV</span>
+          </button>
+        </div>
+
+        <div style="display: flex; flex-direction: column;">
+          <span style="font-size: 10px; color: #94A3B8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px;">History Registry</span>
+          <div id="historyLogs" class="list" style="max-height: 220px; min-height: 120px;">
+            <!-- History listings -->
+          </div>
+        </div>
+      </div>
+
+      <div class="scraper-box">
+        <div class="toolbar" style="border-top: none; padding-top: 0;">
+          <button id="backToScanBtn" class="toolbar-link" style="color: #94A3B8;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 12px; height: 12px;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            <span>Back to Scanner</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="footer">
+        Powered by CompX Engine ⚡
+      </div>
+    </div>
+
+
+
+
+
+    <!-- ==================== FLOATING TOAST NOTIFICATION CONTAINER ==================== -->
+    <div id="status-toast" class="toast-container hidden">
+      <span class="toast-message" id="status-text">Ready</span>
+    </div>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

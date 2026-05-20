@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "CompX Leads Pro",
+  "version": "1.0.0",
+  "description": "An elite email and social media finder extension to scan, extract, and bulk-export prospect contact data - Powered by CompX.",
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://www.instagram.com/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "32": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
